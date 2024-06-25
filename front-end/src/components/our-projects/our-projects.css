@@ -1,0 +1,134 @@
+.our-projects-container {
+  width: 100%;
+  padding-top: 5rem;
+
+  background: #000000;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 4rem;
+  gap: 9rem;
+  height: 1000px;
+}
+
+.our-projects-container .left-side {
+  max-width: 800px;
+  width: 100%;
+  padding-left: 2rem;
+  width: 50%;
+}
+
+.our-projects-container .left-side .title {
+  width: 781px;
+
+  font-family: InterTightSemiBold;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 110%;
+  text-transform: uppercase;
+  color: #d9d9d9;
+
+  margin-right: 42.27%;
+  margin-top: 1.44%;
+}
+
+.our-projects-container .left-side .description-first {
+  width: 800px;
+  height: 438px;
+
+  font-family: InterTightLight;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 38px;
+  line-height: 130%;
+  padding-top: 11rem;
+  color: #d9d9d9;
+}
+
+.our-projects-container .left-side .description-second {
+  width: 800px;
+  height: 438px;
+
+  font-family: InterTightLight;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 38px;
+  line-height: 130%;
+  padding-top: 1.5rem;
+  color: #d9d9d9;
+}
+
+.our-projects-container .right-side {
+  max-width: 800px;
+  width: 100%;
+}
+
+.our-projects-container .right-side .carousel-item  img {
+  height: 800px !important;
+  object-fit: cover !important;
+}
+
+/* carousel */
+
+.carousel {
+  position: relative;
+}
+
+.carousel-indicators {
+  position: absolute;
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  gap: 1rem;
+  top: 5px;
+  height: 25px;
+  z-index: 100;
+}
+
+.carousel-indicators button {
+  width: 228px !important;
+  height: 6px !important;
+  position: relative;
+  right: 120px;
+}
+
+.carousel-indicators button {
+  background-color: #d9d9d9;
+}
+
+.carousel-indicators .active {
+  background-color: #ff0000 !important;
+}
+
+.img-desc-container {
+  position: absolute;
+  background-color: green;
+  bottom: 0px;
+  padding: 3rem;
+  padding-left: 2.2rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.img-desc-container .slider-count {
+  font-family: MangoGrotesqueBold;
+  color: #ff0000;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 50px;
+  text-transform: uppercase;
+}
+
+.arrows-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.arrows-container .arrow {
+  background-color: #ff0000;
+   padding-inline: 8px;
+   padding-block: 5px;
+}

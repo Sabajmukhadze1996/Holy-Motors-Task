@@ -22,22 +22,16 @@
 html, body, #root {
   width: 100%;
   min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
-#root {
-  display: flex;
-  justify-content: center;
-}
-
-.main-app-container {
- max-width: 900px;
- width: 100%;
- min-height: 100vh;
- border: 1px solid black;
-}
 
 a {
   text-decoration: none !important;
+}
+
+ul li {
+  list-style: none !important;
 }
 
 
