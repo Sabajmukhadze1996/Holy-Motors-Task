@@ -1,0 +1,59 @@
+.clients-container {
+  width: 100%;
+  background-color: #000000;
+  padding-bottom: 13rem;
+}
+
+.clients-container .title-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 11.5rem;
+  padding-bottom: 6.5rem;
+}
+
+.clients-container .title-container .title {
+  width: 479px;
+  top: 63.45%;
+  font-family: MangoGrotesqueBold;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 230px;
+  line-height: 244px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.clients-container .logos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-inline: 4rem;
+  gap: 5rem;
+}
+
+.clients-container .logos-container {
+  flex: 1 1 calc(16.66% - 6rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .clients-container .logos-container {
+    flex: 1 1 calc(33.33% - 6rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .clients-container .logos-container {
+    flex: 1 1 calc(50% - 6rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .clients-container .logos-container {
+    flex: 1 1 calc(100% - 6rem);
+  }
+}
