@@ -8,7 +8,7 @@ This project is a full-stack application built with React.js for the Front-End a
 ## Technologies and Packages Used
 
 - Front-End: React.js, HTML/CSS, Bootstrap.
-- Back-End: Node.js, Express.js, MongoDB, GraphQL, ApolloServer.
+- Back-End: Node.js, Express.js, MongoDB, GraphQL, apollo-server-express.
 - Tools: Git, npm.
 
 

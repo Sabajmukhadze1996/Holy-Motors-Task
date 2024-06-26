@@ -5,7 +5,6 @@ const { ApolloServer, gql } = require("apollo-server-express");
 const OurProjectsModel = require("./models/OurProjectsModel");
 const OurWorksModel = require("./models/OurWorksModel");
 
-
 dbConnect();
 
 const typeDefs = gql`
@@ -40,54 +39,57 @@ const typeDefs = gql`
 `;
 
 const resolvers = {
-    Query: {
-      test: () => "test",
-      getAllProjects: async () => {
-        try {
-          return await OurProjectsModel.find();
-        } catch (error) {
-          throw new Error("Error fetching projects");
-        }
-      },
-      getAllWorks: async () => {
-        try {
-          return await OurWorksModel.find();
-        } catch (error) {
-          throw new Error("Error fetching works");
-        }
-      },
+  Query: {
+    test: () => "test",
+    getAllProjects: async () => {
+      try {
+        return await OurProjectsModel.find();
+      } catch (error) {
+        throw new Error("Error fetching projects");
+      }
     },
-    Mutation: {
-      createProject: async (_, { title, description, img }) => {
-        try {
-          const newProject = new OurProject({ title, description, img });
-          await newProject.save();
-          return newProject;
-        } catch (error) {
-          throw new Error("Error creating project");
-        }
-      },
-      createWork: async (_, { title, description, img }) => {
-        try {
-          const newWork = new OurWork({ title, description, img });
-          await newWork.save();
-          return newWork;
-        } catch (error) {
-          throw new Error("Error creating work");
-        }
-      },
+    getAllWorks: async () => {
+      try {
+        return await OurWorksModel.find();
+      } catch (error) {
+        throw new Error("Error fetching works");
+      }
     },
-  };
+  },
+  Mutation: {
+    createProject: async (_, { title, description, img }) => {
+      try {
+        const newProject = new OurProjectsModel({ title, description, img });
+        await newProject.save();
+        return newProject;
+      } catch (error) {
+        throw new Error("Error creating project");
+      }
+    },
+    createWork: async (_, { title, description, img }) => {
+      try {
+        const newWork = new OurWorksModel({ title, description, img });
+        await newWork.save();
+        return newWork;
+      } catch (error) {
+        throw new Error("Error creating work");
+      }
+    },
+  },
+};
 
-const server = new ApolloServer({ typeDefs, resolvers });
+async function startServer() {
+  const server = new ApolloServer({ typeDefs, resolvers });
+  await server.start();
 
-const app = express();
-server.applyMiddleware({ app });
+  const app = express();
+  server.applyMiddleware({ app });
 
-app.listen({ port: 4000 }, () => {
-  try {
+  app.listen({ port: 4000 }, () => {
     console.log(`Server ready at http://localhost:4000${server.graphqlPath}`);
-  } catch (error) {
-    console.log(error);
-  }
+  });
+}
+
+startServer().catch((error) => {
+  console.error("Failed to start server", error);
 });
