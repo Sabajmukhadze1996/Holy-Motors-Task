@@ -1,0 +1,116 @@
+.our-work-container {
+  width: 100%;
+  height: 1000px;
+  display: flex;
+  align-items: center;
+  padding-inline: 2.3rem;
+  background-color: #ff0000;
+  position: relative;
+}
+
+.our-work-container .inner-container {
+  width: 100%;
+  max-width: 1639px;
+  height: 800px;
+  position: relative;
+}
+
+.our-work-container .inner-container .bottom-container {
+  position: absolute;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: inset 0 500px 20px rgba(0, 0, 0, 0.5),
+    inset 0 0px 600px rgba(0, 0, 0, 0.3), inset 0 30px 40px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.5s ease-in-out;
+  background-color: #00000055;
+  bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.our-work-container .inner-container .bottom-container p {
+  width: 770px;
+  font-family: InterTightLight;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 130%;
+  color: #ffffff;
+}
+
+.our-work-container .inner-container .bottom-container .card-title {
+  width: 600px;
+  font-family: MangoGrotesqueBold;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 110px;
+  line-height: 85%;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #ff0000;
+  padding-left: 2rem;
+  padding-top: 2rem;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+
+.our-work-container .carousel-indicators {
+  position: absolute;
+  top: 20px;
+  padding-inline: 2.5rem;
+  height: 20px;
+  z-index: 100;
+  width: 100%;
+  margin: 10px auto;
+ justify-self: auto;
+}
+
+.our-work-container .carousel-indicators  button {
+  width: 400px !important;
+  height: 7.5px;
+}
+
+.our-work-container .carousel-indicators .active {
+  background-color: #ff0000 !important;
+}
+
+.our-work-container .carousel-indicators-scroll-container {
+  position: absolute;
+  top: 65px;
+  padding-inline: 2.7rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.our-work-container .carousel-indicators-scroll-container p {
+  font-family: MangoGrotesqueBold;
+  color: #000000;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 50px;
+  text-transform: uppercase;
+}
+
+.our-work-container .carousel-indicators-scroll-container .arrows-container {
+  
+  width: 200px;
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  right: -125px;
+}
+
+
+.our-work-container .carousel-indicators-scroll-container  .arrow {
+  padding-inline: 10px !important;
+  padding-block: 6px !important;
+  height: 30px;
+  position: relative !important;
+  cursor: pointer;
+  background-color: #000000;
+}

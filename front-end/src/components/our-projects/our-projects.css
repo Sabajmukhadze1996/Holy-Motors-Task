@@ -61,12 +61,12 @@
   object-fit: cover !important;
 }
 
-.carousel {
+.our-projects-container .carousel {
   position: relative !important;
   object-fit: cover !important;
 }
 
-.carousel-indicators {
+.our-projects-container .carousel-indicators {
   position: absolute;
   display: flex;
   width: 100%;
@@ -76,22 +76,22 @@
   z-index: 100;
 }
 
-.carousel-indicators button {
+.our-projects-container .carousel-indicators button {
   width: 228px !important;
   height: 6px !important;
   position: relative;
   right: 120px;
 }
 
-.carousel-indicators button {
+.our-projects-container .carousel-indicators button {
   background-color: #d9d9d9;
 }
 
-.carousel-indicators .active {
+.our-projects-container .carousel-indicators .active {
   background-color: #ff0000 !important;
 }
 
-.img-desc-container {
+.our-projects-container .img-desc-container {
   position: absolute;
   bottom: -40px;
   width: 100%;
@@ -99,7 +99,7 @@
   z-index: 100;
 }
 
-.img-desc-container .slider-count {
+.our-projects-container .img-desc-container .slider-count {
   font-family: MangoGrotesqueBold;
   color: #ff0000;
   font-style: normal;
@@ -109,13 +109,13 @@
   text-transform: uppercase;
 }
 
-.img-desc-container .first-section {
+.our-projects-container .img-desc-container .first-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.img-desc-container .arrows-container {
+.our-projects-container .img-desc-container .arrows-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,7 +124,7 @@
   position: relative;
 }
 
-.img-desc-container .arrows-container .arrow {
+.our-projects-container .img-desc-container .arrows-container .arrow {
   padding-inline: 10px !important;
   padding-block: 6px !important;
   margin-bottom: 1rem !important;
@@ -136,7 +136,7 @@
   left: -20px;
 }
 
-.img-desc-container .first-section .img-title {
+.our-projects-container .img-desc-container .first-section .img-title {
 
   position: relative;
   top: 0;
