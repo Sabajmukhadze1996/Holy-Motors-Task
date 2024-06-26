@@ -7,7 +7,7 @@ import story_image_3 from "../../images/story/image 193.png";
 
 const Story = () => {
   return (
-    <section className="story-container" id="our-story">
+    <footer className="story-container" id="our-story">
       <img src={story_bg_img} alt="Background" className="main-image" />
       <div className="content-container">
         <div className="left-content">
@@ -40,7 +40,7 @@ const Story = () => {
         <img src={story_image_2} alt="Warner Media" />
         <img src={story_image_3} alt="Disney" />
       </div>
-    </section>
+    </footer>
   );
 };
 

@@ -2,6 +2,7 @@
   width: 100%;
   background-color: #000000;
   padding-bottom: 13rem;
+  overflow: hidden; 
 }
 
 .clients-container .title-container {
@@ -23,37 +24,39 @@
   color: #ffffff;
 }
 
-.clients-container .logos-container {
+.clients-container .logo-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding-inline: 4rem;
-  gap: 5rem;
-}
-
-.clients-container .logos-container {
-  flex: 1 1 calc(16.66% - 6rem);
-  display: flex;
-  justify-content: center;
   align-items: center;
-  color: #ffffff;
-  font-size: 2rem;
+  justify-content: space-between;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-inline: 4rem;
+  overflow: hidden; 
 }
 
-@media (max-width: 1200px) {
-  .clients-container .logos-container {
-    flex: 1 1 calc(33.33% - 6rem);
+.clients-container .second-logo-container {
+  margin-top: 4rem;
+}
+
+.logo-wrapper {
+  display: flex;
+  gap: 2rem; 
+  animation: scroll 20s linear infinite;
+}
+
+.clients-container .first-logo-container .logo-wrapper {
+  animation-direction: reverse;
+}
+
+.clients-container .second-logo-container .logo-wrapper {
+  animation-direction: normal; 
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
   }
-}
-
-@media (max-width: 768px) {
-  .clients-container .logos-container {
-    flex: 1 1 calc(50% - 6rem);
-  }
-}
-
-@media (max-width: 576px) {
-  .clients-container .logos-container {
-    flex: 1 1 calc(100% - 6rem);
+  100% {
+    transform: translateX(-50%);
   }
 }
