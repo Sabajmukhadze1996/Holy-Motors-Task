@@ -96,14 +96,26 @@
 
 .logos {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   margin-top: 2rem;
+
+  position: absolute;
+  top: 900px;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  color: white;
+  text-align: left;
+  padding: 2rem;
+  width: 80%;
+  gap: 2rem;
 }
 
-.logos img {
-  max-width: 150px;
+
+.logos img:nth-child(1) {
+  max-width: 200px;
 }
 
 @media (max-width: 768px) {
