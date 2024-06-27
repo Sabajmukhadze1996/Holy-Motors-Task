@@ -1,37 +1,90 @@
-const { buildSchema, GraphQLSchema } = require('graphql');
+const { GraphQLObjectType, GraphQLSchema, GraphQLID, GraphQLString, GraphQLList } = require('graphql');
 const resolvers = require('../resolvers');
+const ProjectType = require('./types/projectType');
+const WorkType = require('./types/workType');
 
-const schema = buildSchema(`
-    type Project {
-        id: ID!
-        title: String!
-        description: String!
-        imgTitle: String!
-        img: String!
-    }
+const Query = new GraphQLObjectType({
+    name: 'Query',
+    fields: {
+        projects: {
+            type: new GraphQLList(ProjectType),
+            resolve: resolvers.Query.projects,
+        },
+        project: {
+            type: ProjectType,
+            args: { id: { type: GraphQLID } },
+            resolve: resolvers.Query.project,
+        },
+        works: {
+            type: new GraphQLList(WorkType),
+            resolve: resolvers.Query.works,
+        },
+        work: {
+            type: WorkType,
+            args: { id: { type: GraphQLID } },
+            resolve: resolvers.Query.work,
+        },
+    },
+});
 
-    type Work {
-        id: ID!
-        title: String!
-        description: String!
-        img: String!
-    }
+const Mutation = new GraphQLObjectType({
+    name: 'Mutation',
+    fields: {
+        addProject: {
+            type: ProjectType,
+            args: {
+                id: { type: GraphQLID },
+                title: { type: GraphQLString },
+                description: { type: GraphQLString },
+                imgTitle: { type: GraphQLString },
+                img: { type: GraphQLString },
+            },
+            resolve: resolvers.Mutation.addProject,
+        },
+        updateProject: {
+            type: ProjectType,
+            args: {
+                id: { type: GraphQLID },
+                title: { type: GraphQLString },
+                description: { type: GraphQLString },
+                imgTitle: { type: GraphQLString },
+                img: { type: GraphQLString },
+            },
+            resolve: resolvers.Mutation.updateProject,
+        },
+        deleteProject: {
+            type: ProjectType,
+            args: { id: { type: GraphQLID } },
+            resolve: resolvers.Mutation.deleteProject,
+        },
+        addWork: {
+            type: WorkType,
+            args: {
+                title: { type: GraphQLString },
+                description: { type: GraphQLString },
+                img: { type: GraphQLString },
+            },
+            resolve: resolvers.Mutation.addWork,
+        },
+        updateWork: {
+            type: WorkType,
+            args: {
+                id: { type: GraphQLID },
+                title: { type: GraphQLString },
+                description: { type: GraphQLString },
+                img: { type: GraphQLString },
+            },
+            resolve: resolvers.Mutation.updateWork,
+        },
+        deleteWork: {
+            type: WorkType,
+            args: { id: { type: GraphQLID } },
+            resolve: resolvers.Mutation.deleteWork,
+        },
+    },
+});
 
-    type Query {
-        projects: [Project]
-        project(id: ID!): Project
-        works: [Work]
-        work(id: ID!): Work
-    }
-
-    type Mutation {
-        addProject(id: ID!, title: String!, description: String!, imgTitle: String!, img: String!): Project
-        updateProject(id: ID!, title: String, description: String, imgTitle: String, img: String): Project
-        deleteProject(id: ID!): Project
-        addWork(title: String!, description: String!, img: String!): Work
-        updateWork(id: ID!, title: String, description: String, img: String): Work
-        deleteWork(id: ID!): Work
-    }
-`);
-
-module.exports = new GraphQLSchema({ query: resolvers.Query, mutation: resolvers.Mutation });
+module.exports = new GraphQLSchema({
+    query: Query,
+    mutation: Mutation,
+});
