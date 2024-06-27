@@ -3,10 +3,7 @@ require('dotenv').config();
 
 const uri = process.env.MONGO_URI;
 
-mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(async () => {
+mongoose.connect(uri).then(async () => {
     const db = mongoose.connection;
     await db.createCollection('works');
     console.log('Works collection created');

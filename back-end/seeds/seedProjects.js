@@ -28,10 +28,7 @@ const projects = [
     },
 ];
 
-mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(async () => {
+mongoose.connect(uri).then(async () => {
     await Project.insertMany(projects);
     console.log('Projects seeded');
     mongoose.disconnect();

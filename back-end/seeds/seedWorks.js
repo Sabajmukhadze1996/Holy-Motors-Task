@@ -29,7 +29,6 @@ const works = [
 
 mongoose.connect(uri, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
 }).then(async () => {
     await Work.insertMany(works);
     console.log('Works seeded');
