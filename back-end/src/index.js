@@ -16,6 +16,8 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 
 
 app.use(addCors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
 app.use('/graphql', graphqlHTTP({
