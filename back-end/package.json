@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p . && ncp src/schemas",
-    "start": "nodemon src/index.js",
+    "start": "src/index.js",
+    "devStart": "nodemon src/index.js",
     "migrate:projects": "node migrations/createProjectsCollection.js",
     "migrate:works": "node migrations/createWorksCollection.js",
     "seed:projects": "node seeds/seedProjects.js",
