@@ -6,7 +6,7 @@ import Clients from './components/clients/Clients';
 import Story from './components/story/Story';
 
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div className="main-app-container">
        <Nav />

@@ -5,7 +5,7 @@ import story_image_1 from "../../images/story/image 188.png";
 import story_image_2 from "../../images/story/image 192.png";
 import story_image_3 from "../../images/story/image 193.png";
 
-const Story = () => {
+const Story: React.FC = () => {
   return (
     <footer className="story-container" id="our-story">
       <img src={story_bg_img} alt="Background" className="main-image" />

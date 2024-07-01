@@ -15,7 +15,7 @@ import {
   logo_12,
 } from "../../images/clients/clientsImages";
 
-const Clients = () => {
+const Clients: React.FC = () => {
   const logos1 = [logo_1, logo_2, logo_3, logo_4, logo_5, logo_6];
   const logos2 = [logo_7, logo_8, logo_9, logo_10, logo_11, logo_12];
 

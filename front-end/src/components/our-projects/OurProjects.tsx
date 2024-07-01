@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ApolloClient, InMemoryCache, gql, useQuery } from "@apollo/client";
+import { ApolloClient, InMemoryCache, gql, useQuery, QueryResult } from "@apollo/client";
 import "./our-projects.css";
 import left_arrow from "../../images/our-projects/left-arrow.png";
 import right_arrow from "../../images/our-projects/right-arrow.png";
@@ -21,39 +21,47 @@ const GET_PROJECTS = gql`
   }
 `;
 
-const OurProjects = () => {
-  const { loading, error, data } = useQuery(GET_PROJECTS, { client });
-  const [currentSlide, setCurrentSlide] = useState(0);
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  imgTitle: string;
+  img: string;
+}
+
+interface GetProjectsData {
+  projects: Project[];
+}
+
+const OurProjects: React.FC = () => {
+  const { loading, error, data }: QueryResult<GetProjectsData> = useQuery(GET_PROJECTS, { client });
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   const handlePrevSlide = () => {
-    setCurrentSlide((prev) =>
-      prev === 0 ? data.projects.length - 1 : prev - 1
-    );
+    setCurrentSlide((prev) => (prev === 0 ? data!.projects.length - 1 : prev - 1));
   };
 
   const handleNextSlide = () => {
-    setCurrentSlide((prev) =>
-      prev === data.projects.length - 1 ? 0 : prev + 1
-    );
+    setCurrentSlide((prev) => (prev === data!.projects.length - 1 ? 0 : prev + 1));
   };
 
   return (
     <section className="our-projects-container" id="our-projects">
       <div className="left-side">
-        <p className="title">{data.projects[currentSlide].title}</p>
+        <p className="title">{data!.projects[currentSlide].title}</p>
         <div className="desc-text-container">
           <p className="desc_first">
-            {data.projects[currentSlide].description.substring(0, 300)}
+            {data!.projects[currentSlide].description.substring(0, 300)}
           </p>
         </div>
       </div>
       <div className="right-side">
         <div id="carouselExampleIndicators" className="carousel slide">
           <div className="carousel-indicators">
-            {data.projects.map((_: any, index: any) => (
+            {data!.projects.map((_, index) => (
               <button
                 key={index}
                 type="button"
@@ -67,12 +75,10 @@ const OurProjects = () => {
             ))}
           </div>
           <div className="carousel-inner">
-            {data.projects.map((item: any, index: any) => (
+            {data!.projects.map((item, index) => (
               <div
                 key={item.id}
-                className={`carousel-item ${
-                  index === currentSlide ? "active" : ""
-                }`}
+                className={`carousel-item ${index === currentSlide ? "active" : ""}`}
               >
                 <img src={item.img} className="d-block" alt={item.imgTitle} />
               </div>
@@ -101,7 +107,7 @@ const OurProjects = () => {
                   />
                   <div>
                     <p className="img-title">
-                      {data.projects[currentSlide].imgTitle}
+                      {data!.projects[currentSlide].imgTitle}
                     </p>
                   </div>
                 </div>

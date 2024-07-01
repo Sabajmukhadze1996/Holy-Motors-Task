@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ApolloClient, InMemoryCache, gql, useQuery } from "@apollo/client";
+import { ApolloClient, InMemoryCache, gql, useQuery, QueryResult } from "@apollo/client";
 import "./our-works.css";
 import left_arrow from "../../images/our-projects/left-arrow.png";
 import right_arrow from "../../images/our-projects/right-arrow.png";
@@ -20,22 +20,33 @@ const GET_WORKS = gql`
   }
 `;
 
-const OurWorks = () => {
-  const { loading, error, data } = useQuery(GET_WORKS, { client });
-  const [currentSlide, setCurrentSlide] = useState(0);
+interface Work {
+  id: string;
+  title: string;
+  description: string;
+  img: string;
+}
+
+interface GetWorksData {
+  works: Work[];
+}
+
+const OurWorks: React.FC = () => {
+  const { loading, error, data }: QueryResult<GetWorksData> = useQuery(GET_WORKS, { client });
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? data.works.length - 1 : prev - 1));
+    setCurrentSlide((prev) => (prev === 0 ? data!.works.length - 1 : prev - 1));
   };
 
   const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev === data.works.length - 1 ? 0 : prev + 1));
+    setCurrentSlide((prev) => (prev === data!.works.length - 1 ? 0 : prev + 1));
   };
 
-  const handleIndicatorClick = (index: any) => {
+  const handleIndicatorClick = (index: number) => {
     setCurrentSlide(index);
   };
 
@@ -43,7 +54,7 @@ const OurWorks = () => {
     <section className="our-work-container" id="our-works">
       <div className="inner-container">
         <div className="carousel-indicators">
-          {data.works.map((slide: any, index: any) => (
+          {data!.works.map((_, index) => (
             <button
               key={index}
               type="button"
@@ -79,10 +90,10 @@ const OurWorks = () => {
           </div>
         </div>
 
-        <img src={data.works[currentSlide].img} alt="img" className="img-fluid" />
+        <img src={data!.works[currentSlide].img} alt="img" className="img-fluid" />
         <div className="bottom-container">
-          <p>{data.works[currentSlide].description}</p>
-          <p className="card-title">{data.works[currentSlide].title}</p>
+          <p>{data!.works[currentSlide].description}</p>
+          <p className="card-title">{data!.works[currentSlide].title}</p>
         </div>
       </div>
     </section>
